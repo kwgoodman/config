@@ -1,0 +1,10 @@
+[user]
+	name = Keith Goodman
+	email = kwgoodman@gmail.com
+[color]
+	ui = auto
+[core]
+    editor = vim
+	excludesfile = ~/.gitignore
+[merge]
+	tool = meld
