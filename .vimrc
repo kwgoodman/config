@@ -31,7 +31,10 @@ inoremap jj <Esc>
 set incsearch
 set hlsearch
 
-" Set shell title---handy way to see file name and directory.
-" Restore on exit (restore works for me on Terminator but not gnome-terminal)
+" Set shell title---handy way to see file name and directory. Restore on exit.
+" (Restore works for me on gnome-terminator but not gnome-terminal.)
 set title
 set titleold=""
+
+" Toggle nerdtree with F2
+map <F2> :NERDTreeToggle<CR>
