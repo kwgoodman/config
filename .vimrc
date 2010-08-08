@@ -16,8 +16,8 @@ match OverLength /\%80v.\+/
 " Show the status line
 set laststatus=2
 
-" Damn, wish I never found this one. Now I'll never learn how to navigate with
-" the keyboard. 
+" Damn, wish I never found this one.
+" Now I'll never learn how to navigate with the keyboard. 
 set mouse=a
  
 " Tab completion of commands
@@ -30,3 +30,8 @@ inoremap jj <Esc>
 " Search as you type, highlight result
 set incsearch
 set hlsearch
+
+" Set shell title---handy way to see file name and directory.
+" Restore on exit (restore works for me on Terminator but not gnome-terminal)
+set title
+set titleold=""
