@@ -36,5 +36,6 @@ set hlsearch
 set title
 set titleold=""
 
-" Toggle nerdtree with F2
+" Nerdtree: Toggle nerdtree with F2; ignore *.pyc files
 map <F2> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
