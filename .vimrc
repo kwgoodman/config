@@ -39,3 +39,7 @@ set titleold=""
 " Nerdtree: Toggle nerdtree with F2; ignore *.pyc files
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
+
+" Cycle through buffers with F4 and F3
+:nnoremap <F4> :bnext<CR>
+:nnoremap <F3> :bprevious<CR>
