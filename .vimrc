@@ -43,3 +43,13 @@ let NERDTreeIgnore = ['\.pyc$']
 " Cycle through buffers with F4 and F3
 :nnoremap <F4> :bnext<CR>
 :nnoremap <F3> :bprevious<CR>
+
+" pyflakes-vim needs this
+filetype plugin indent on
+
+" gvim setting
+if has('gui_running')
+    colorscheme slate
+    set guioptions-=T  " hide toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+endif    
