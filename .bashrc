@@ -98,6 +98,5 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-##### kg: my stuff
+# Fancy prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[0;32m\]\u@\h\[\033[33m\]:\[\033[0;33m\]\w\$\[\033[00m\] '
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.6/site-packages/
