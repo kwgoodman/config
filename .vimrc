@@ -10,8 +10,11 @@ set shiftwidth=4
 filetype indent on
 
 " Highlight characters after column 79 (PEP8)
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%80v.\+/
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 " Show the status line
 set laststatus=2
@@ -44,6 +47,23 @@ let NERDTreeIgnore = ['\.pyc$']
 :nnoremap <F4> :bnext<CR>
 :nnoremap <F3> :bprevious<CR>
 
+" Use CTRL-S for saving, also in Insert mode
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
+"
+" Add this to .bashrc:
+"
+" When vim is used in terminal (instead of gui) the terminal should pass
+" through CNTRL-S to vim (for use as 'save') instead of stop scrolling
+" vim()
+" {
+"    local STTYOPTS="$(stty --save)"
+"    stty stop '' -ixoff
+"    command vim "$@"
+"    stty "$STTYOPTS"
+"}
+
 " pyflakes-vim needs this
 filetype plugin indent on
 
@@ -52,4 +72,6 @@ if has('gui_running')
     colorscheme slate
     set guioptions-=T  " hide toolbar
     set guioptions-=r  "remove right-hand scroll bar
+    set columns=80 lines=120
+    set guifont=Monospace\ 12
 endif    

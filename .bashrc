@@ -102,3 +102,13 @@ fi
 PS1='${debian_chroot:+($debian_chroot)}\[\033[0;32m\]\u@\h\[\033[33m\]:\[\033[0;33m\]\w\$\[\033[00m\] '
 
 export PATH=$PATH:~/ghar/bin/
+
+# When vim is used in terminal (instead of gui) the terminal should pass
+# through CNTRL-S to vim (for use as 'save') instead of stop scrolling
+vim()
+{
+    local STTYOPTS="$(stty --save)"
+    stty stop '' -ixoff
+    command vim "$@"
+    stty "$STTYOPTS"
+}
