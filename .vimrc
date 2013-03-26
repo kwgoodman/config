@@ -43,9 +43,16 @@ set titleold=""
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
+" Sav precs keystrks
+nnoremap ; :
+
 " Cycle through buffers with F4 and F3
 :nnoremap <F4> :bnext<CR>
 :nnoremap <F3> :bprevious<CR>
+
+" Use Q for formatting the current paragraph (or selection)
+vmap Q gq
+nmap Q gqap
 
 " Use CTRL-S for saving, also in Insert mode
 noremap <silent> <C-S> :update<CR>
@@ -74,4 +81,6 @@ if has('gui_running')
     set guioptions-=r  "remove right-hand scroll bar
     set columns=80 lines=120
     set guifont=Monospace\ 12
+else
+    set bg=dark
 endif    
