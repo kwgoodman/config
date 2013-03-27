@@ -74,6 +74,8 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 " pyflakes-vim needs this
 filetype plugin indent on
 
+nnoremap <F5> :GundoToggle<CR>
+
 " gvim setting
 if has('gui_running')
     colorscheme slate
