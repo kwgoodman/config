@@ -75,8 +75,12 @@ if has('gui_running')
     set columns=80 lines=120
     set guifont=Monospace\ 12
 else
-    set bg=dark
-endif    
+    set t_Co=16
+endif
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins
