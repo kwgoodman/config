@@ -9,13 +9,6 @@ set expandtab
 set shiftwidth=4
 filetype indent on
 
-" Highlight characters after column 79 (PEP8)
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
-
 " Show the status line
 set laststatus=2
 
@@ -38,10 +31,6 @@ set hlsearch
 " (Restore works for me on gnome-terminator but not gnome-terminal.)
 set title
 set titleold=""
-
-" Nerdtree: Toggle nerdtree with F2; ignore *.pyc files
-map <F2> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
 
 " Sav precs keystrks
 nnoremap ; :
@@ -71,10 +60,12 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 "    stty "$STTYOPTS"
 "}
 
-" pyflakes-vim needs this
-filetype plugin indent on
-
-nnoremap <F5> :GundoToggle<CR>
+" Highlight characters after column 79 (PEP8)
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 " gvim setting
 if has('gui_running')
@@ -86,3 +77,16 @@ if has('gui_running')
 else
     set bg=dark
 endif    
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" plugins
+
+" Nerdtree: Toggle nerdtree with F2; ignore *.pyc files
+map <F2> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
+
+" pyflakes-vim needs this
+filetype plugin indent on
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
