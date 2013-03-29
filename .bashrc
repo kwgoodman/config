@@ -23,6 +23,8 @@ shopt -s checkwinsize
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
+
+    # colors
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
@@ -30,6 +32,19 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+
+    # git
+    alias st='git status'
+    alias ad='git add'
+    alias aa='git add .'
+    alias co='git commit'
+    alias ch='git checkout'
+    alias lo='git log'
+    alias cl='git clone'
+    alias di='git diff'
+    alias ps='git push origin master'
+    alias pl='git pull'
+
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -40,7 +55,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # Fancy prompt
-PS1='${debian_chroot:+($debian_chroot)}\[\033[0;32m\]\u@\h\[\033[33m\]:\[\033[0;33m\]\w\$\[\033[00m\] '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[0;34m\]\u@\h\[\033[33m\]:\[\033[1;30m\]\w\$\[\033[00m\] '
 
 export PATH=$PATH:~/ghar/bin/
 
