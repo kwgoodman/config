@@ -33,19 +33,36 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 
-    # git
-    alias st='git status'
-    alias ad='git add'
-    alias aa='git add .'
-    alias co='git commit'
-    alias ch='git checkout'
-    alias lo='git log'
-    alias cl='git clone'
-    alias di='git diff'
-    alias ps='git push origin master'
-    alias pl='git pull'
-
 fi
+
+# git aliases
+alias st='git status'
+alias ad='git add'
+alias aa='git add .'
+alias co='git commit'
+alias ch='git checkout'
+alias lo='git log'
+alias cl='git clone'
+alias di='git diff'
+alias ps='git push origin master'
+alias pl='git pull'
+
+# place aliases
+alias de='cd /devel'
+alias da='cd /data'
+alias dp='cd /usr/local/lib/python2.7/dist-packages'
+alias bn='cd /devel/bottleneck'
+alias la='cd /devel/la'
+
+# ls aiases
+alias l='ls'
+alias ll='ls -l'
+alias la='ls -la'
+
+# misc aliases
+alias py='ipython'
+alias ma='make all'
+alias me='meld .'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
