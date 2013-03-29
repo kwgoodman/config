@@ -88,6 +88,7 @@ colorscheme solarized
 " Nerdtree: Toggle nerdtree with F2; ignore *.pyc files
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeShowBookmarks=1
 
 " pyflakes-vim needs this
 filetype plugin indent on
