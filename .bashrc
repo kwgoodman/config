@@ -46,13 +46,19 @@ alias cl='git clone'
 alias di='git diff'
 alias ps='git push origin master'
 alias pl='git pull'
+alias br='git branch'
 
 # place aliases
 alias de='cd /devel'
 alias da='cd /data'
 alias dp='cd /usr/local/lib/python2.7/dist-packages'
-alias bn='cd /devel/bottleneck'
-alias la='cd /devel/la'
+alias gh='cd ~/ghar/config'
+
+# cd
+alias c='cd'
+alias c.='cd ..'
+alias c..='cd ../..'
+alias c...='cd ../../..'
 
 # ls aiases
 alias l='ls'
