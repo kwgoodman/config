@@ -68,7 +68,9 @@ alias la='ls -la'
 # misc aliases
 alias py='ipython'
 alias ma='make all'
+alias mt='make test'
 alias me='meld .'
+alias sb='source ~/.bashrc'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
