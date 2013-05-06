@@ -80,6 +80,10 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
+" <leader>l shows whitespace
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
 " gvim setting
 if has('gui_running')
     colorscheme slate
