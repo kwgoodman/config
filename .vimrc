@@ -43,6 +43,9 @@ nnoremap ; :
 vmap Q gq
 nmap Q gqap
 
+" Space turns off highlighting and clears any messages already displayed
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
 " Use CTRL-S for saving, also in Insert mode
 noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
