@@ -99,7 +99,7 @@ misc
 - ``^2X`` move current line two spaces left
 - ``:10t20`` insert copy of line 10 on a new line after line 20
 - ``:10t.`` insert copy of line 10 on a new line after current line
-- ``:10,13t20`` insert copy of lines 10-13 on a new line after line 20
+- ``:10,13t20`` insert copy of lines 10-13 on new lines after line 20
 - ``H`` move cursor to first line of screen
 - ``M`` move cursor to middle line of screen
 - ``L`` move cursor to last line of screen
