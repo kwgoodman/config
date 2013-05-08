@@ -58,11 +58,11 @@ Text object commands have the form::
 
 where:
 
-========  ==================================================================
-command   c (change), d (delete), v (select), y (yank)
-extent    i (inner), a (include enclosing quotes, parentheses, etc)
-object    w (word), s (sentence), p (paragraph), " (quotes), ) (parentheses)
-========  ==================================================================
+========  =================================================================
+command   ``c`` (change), ``d`` (delete), ``v`` (select), ``y`` (yank)
+extent    ``i`` (inner), ``a`` (include enclosing quotes, parentheses, etc)
+object    ``w`` (word), ``s`` (sentence), ``p`` (paragraph), ``"``, ``)``
+========  =================================================================
 
 examples
 --------
