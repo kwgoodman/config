@@ -56,14 +56,13 @@ Text object commands have the form::
 
     {command} {extent} {object}
 
-where::
+where:
 
-  ========  ==================================================================
-  command   c (change), d (delete), v (select), y (yank)
-  extent    i (inner), a (include enclosing quotes, parentheses, etc)
-  object    w (word), s (sentence), p (paragraph), " (quotes), ) (parentheses),
-            etc
-  ========  ==================================================================
+========  ==================================================================
+command   c (change), d (delete), v (select), y (yank)
+extent    i (inner), a (include enclosing quotes, parentheses, etc)
+object    w (word), s (sentence), p (paragraph), " (quotes), ) (parentheses)
+========  ==================================================================
 
 examples
 --------
