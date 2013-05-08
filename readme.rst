@@ -81,15 +81,22 @@ Many text object commands have motion command equivalents. For example ``viw`` i
 the same as ``bve`` (or ``ve`` if the cursor is already on the first character of
 the word.)
 
+====================
+insert mode commands
+====================
+
+- ``CTRL-T`` insert one shiftwidth of indent at the start of current line
+- ``CTRL-D`` delete one shiftwidth of indent at the start of current line
+- ``CTRL-W`` delete word to the left of cursor
+
 ====
 misc
 ====
 
-- ``Ctrl+W`` delete word to the left in insert mode
 - ``v/foo`` select from cursor to "foo" (``n`` for next; ``v?foo`` backwards)
 - ``ev2B`` select current word and previous word
-- ``:s/^/  /`` move selected text two spaces right
-- ``^2X`` move selected text two spaces left
+- ``:s/^/  /`` move current line two spaces right
+- ``^2X`` move current line two spaces left
 - ``H`` move cursor to first line of screen
 - ``M`` move cursor to middle line of screen
 - ``L`` move cursor to last line of screen
