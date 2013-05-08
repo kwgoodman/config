@@ -30,7 +30,7 @@ Let's check the status::
     $ ghar install --status
 
 ghar does not overwrite existing files so move your existing config files (such
-as .bashrc) before running `ghar install`.
+as .bashrc) before running ``ghar install``.
 
 ========
 vim tips
@@ -39,14 +39,14 @@ vim tips
 I know how to insert and save. For everything else I use the arrow keys. These
 vim notes are my journey to salvation.
 
-how to construct commands like `viw` and `ci)`
-==============================================
+how to construct commands like ``viw`` and ``ci)``
+==================================================
 
 motion commands vs. text objects commands
 -----------------------------------------
 
-"A command using a motion, e.g., `cw`, operates from the current cursor
-position.  A command using a text-object_, e.g., `ciw` operates on the whole
+"A command using a motion, e.g., ``cw``, operates from the current cursor
+position.  A command using a text-object_, e.g., ``ciw`` operates on the whole
 object regardless of the cursor position."
 
 text objects commands
@@ -56,7 +56,7 @@ Text object commands have the form::
 
     {command} {extent} {object}
 
-where:
+where::
 
   ========  ==================================================================
   command   c (change), d (delete), v (select), y (yank)
@@ -68,32 +68,32 @@ where:
 examples
 --------
 
-- `diw` delete current word
-- `vaw` select current word plus trailing whitespace
-- `vip` select current paragraph
-- `vis` select current sentence (or block of code!)
-- `ci)` change everything between enclosing parentheses (or use ", ', ], etc)
-- `ca)` same as above but include parentheses
+- ``diw`` delete current word
+- ``vaw`` select current word plus trailing whitespace
+- ``vip`` select current paragraph
+- ``vis`` select current sentence (or block of code!)
+- ``ci)`` change everything between enclosing parentheses (or use ", ', ], etc)
+- ``ca)`` same as above but include parentheses
 
 similar commands
 ----------------
 
-Many text object commands have motion command equivalents. For example `viw` is
-the same as `bve` (or `ve` if the cursor is already on the first character of
+Many text object commands have motion command equivalents. For example ``viw`` is
+the same as ``bve`` (or ``ve`` if the cursor is already on the first character of
 the word.)
 
 ====
 misc
 ====
 
-- `Ctrl+W` delete word to the left in insert mode
-- `v/foo` select from cursor to "foo" (`n` for next; `v?foo` backwards)
-- `:s/^/ /` move selected text one space right
-- `^2X` move selected text one space left
-- `H` move cursor to first line of screen
-- `M` move cursor to middle line of screen
-- `L` move cursor to last line of screen
-- `zz` center screen on cursor
+- ``Ctrl+W`` delete word to the left in insert mode
+- ``v/foo`` select from cursor to "foo" (``n`` for next; ``v?foo`` backwards)
+- ``:s/^/ /`` move selected text one space right
+- ``^2X`` move selected text one space left
+- ``H`` move cursor to first line of screen
+- ``M`` move cursor to middle line of screen
+- ``L`` move cursor to last line of screen
+- ``zz`` center screen on cursor
 
 .. _`config files`: http://github.com/kwgoodman/config
 .. _ghar: https://github.com/philips/ghar
