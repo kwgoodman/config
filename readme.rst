@@ -58,11 +58,11 @@ Text object commands have the form::
 
 where:
 
-========  =================================================================
+========  ====================================================================
 command   ``c`` (change), ``d`` (delete), ``v`` (select), ``y`` (yank)
 extent    ``i`` (inner), ``a`` (include enclosing quotes, parentheses, etc)
-object    ``w`` (word), ``s`` (sentence), ``p`` (paragraph), ``"``, ``)``
-========  =================================================================
+object    ``w`` (word), ``s`` (sentence), ``p`` (paragraph), ``"``, ``)``, etc
+========  ====================================================================
 
 examples
 --------
@@ -87,8 +87,9 @@ misc
 
 - ``Ctrl+W`` delete word to the left in insert mode
 - ``v/foo`` select from cursor to "foo" (``n`` for next; ``v?foo`` backwards)
-- ``:s/^/ /`` move selected text one space right
-- ``^2X`` move selected text one space left
+- ``ev2B`` select current word and previous word
+- ``:s/^/  /`` move selected text two spaces right
+- ``^2X`` move selected text two spaces left
 - ``H`` move cursor to first line of screen
 - ``M`` move cursor to middle line of screen
 - ``L`` move cursor to last line of screen
