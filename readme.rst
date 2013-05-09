@@ -47,7 +47,7 @@ The command to copy (t) or move (m) lines of text::
 
     :[range]{t, m}[address]
 
-For example::    
+For example:
 
 - ``:10t20`` insert copy of line 10 on a new line after line 20
 - ``:10m20`` move line 10 to a new line after line 20
@@ -74,7 +74,7 @@ extent    ``i`` (inner), ``a`` (include enclosing quotes, parentheses, etc)
 object    ``w`` (word), ``s`` (sentence), ``p`` (paragraph), ``"``, ``)``, etc
 ========  ====================================================================
 
-Examples::
+Examples:
 
 - ``diw`` delete current word
 - ``vaw`` select current word plus trailing whitespace
