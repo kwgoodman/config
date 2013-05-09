@@ -112,6 +112,8 @@ misc
 - ``ev2B`` select current word and previous word
 - ``:s/^/  /`` move current line two spaces right
 - ``^2X`` move current line two spaces left
+- ``:7pu`` put yanked text on new line after line 7
+- ``:7pu!`` put yanked text on new line before line 7
 - ``H`` move cursor to first line of screen
 - ``M`` move cursor to middle line of screen
 - ``L`` move cursor to last line of screen

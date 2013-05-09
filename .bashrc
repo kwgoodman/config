@@ -80,7 +80,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # Fancy prompt
-PS1='${debian_chroot:+($debian_chroot)}\[\033[0;34m\]\u@\h\[\033[33m\]:\[\033[1;30m\]\w\$\[\033[00m\] '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[0;34m\]\u@\h\[\033[33m\]:\[\033[40m\]\w\$\[\033[00m\] '
 
 export PATH=$PATH:~/ghar/bin/
 
