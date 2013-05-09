@@ -39,18 +39,28 @@ vim tips
 I know how to insert and save. For everything else I use the arrow keys. These
 vim notes are my journey to salvation.
 
-how to construct commands like ``viw`` and ``ci)``
-==================================================
+==================
+copy or move lines
+==================
 
-motion commands vs. text objects commands
------------------------------------------
+The command to copy (t) or move (m) lines of text::
+
+    :[range]{t, m}[address]
+
+For example::    
+
+- ``:10t20`` insert copy of line 10 on a new line after line 20
+- ``:10m20`` move line 10 to a new line after line 20
+- ``:10t.`` insert copy of line 10 on a new line after current line
+- ``:10,13t20`` insert copy of lines 10-13 on new lines after line 20
+
+=====================
+text objects commands
+=====================
 
 "A command using a motion, e.g., ``cw``, operates from the current cursor
 position.  A command using a text-object_, e.g., ``ciw`` operates on the whole
 object regardless of the cursor position."
-
-text objects commands
----------------------
 
 Text object commands have the form::
 
@@ -59,23 +69,20 @@ Text object commands have the form::
 where:
 
 ========  ====================================================================
-command   ``c`` (change), ``d`` (delete), ``v`` (select), ``y`` (yank)
+command   ``c`` (change), ``d`` (delete), ``v`` (select), ``y`` (yank), etc
 extent    ``i`` (inner), ``a`` (include enclosing quotes, parentheses, etc)
 object    ``w`` (word), ``s`` (sentence), ``p`` (paragraph), ``"``, ``)``, etc
 ========  ====================================================================
 
-examples
---------
+Examples::
 
 - ``diw`` delete current word
 - ``vaw`` select current word plus trailing whitespace
 - ``vip`` select current paragraph
 - ``vis`` select current sentence (or block of code!)
-- ``ci)`` change everything between enclosing parentheses (or use ", ', ], etc)
+- ``ci)`` change everything between enclosing parentheses (or use ``"``, ``'``, ``]``, etc)
 - ``ca)`` same as above but include parentheses
-
-similar commands
-----------------
+- ``>ip`` indent inner paragraph
 
 Many text object commands have motion command equivalents. For example ``viw``
 is the same as ``bve`` (or ``ve`` if the cursor is already on the first
@@ -97,9 +104,6 @@ misc
 - ``ev2B`` select current word and previous word
 - ``:s/^/  /`` move current line two spaces right
 - ``^2X`` move current line two spaces left
-- ``:10t20`` insert copy of line 10 on a new line after line 20
-- ``:10t.`` insert copy of line 10 on a new line after current line
-- ``:10,13t20`` insert copy of lines 10-13 on new lines after line 20
 - ``H`` move cursor to first line of screen
 - ``M`` move cursor to middle line of screen
 - ``L`` move cursor to last line of screen
