@@ -54,12 +54,12 @@ For example:
 - ``:10t.`` insert copy of line 10 on a new line after current line
 - ``:10,13t20`` insert copy of lines 10-13 on new lines after line 20
 
-=====================
-text objects commands
-=====================
+====================
+text object commands
+====================
 
 "A command using a motion, e.g., ``cw``, operates from the current cursor
-position.  A command using a text-object_, e.g., ``ciw`` operates on the whole
+position. A command using a text-object_, e.g., ``ciw`` operates on the whole
 object regardless of the cursor position."
 
 Text object commands have the form::
@@ -88,6 +88,14 @@ Many text object commands have motion command equivalents. For example ``viw``
 is the same as ``bve`` (or ``ve`` if the cursor is already on the first
 character of the word.)
 
+When using a command like ``ci"`` the cursor does not have to be between the
+quotes. It will change the text of the next quoted string on the current line.
+
+I use a `vim plugin to make indent objects`_ that can be used to select text at
+the current indentation level or higher. It is useful for treating Python code
+in a `if` or `for` loop as a text object. For example, the command ``cii``
+changes all code that is indented as much as the current line or more.
+
 ====================
 insert mode commands
 ====================
@@ -112,3 +120,4 @@ misc
 .. _`config files`: http://github.com/kwgoodman/config
 .. _ghar: https://github.com/philips/ghar
 .. _text-object: http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide
+.. _`vim plugin to make indent objects`: https://github.com/michaeljsmith/vim-indent-object
