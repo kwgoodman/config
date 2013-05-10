@@ -9,6 +9,7 @@ set expandtab
 set shiftwidth=4
 filetype indent on
 set nowrap
+set number
 
 " Show the status line
 set laststatus=2
