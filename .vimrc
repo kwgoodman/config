@@ -19,8 +19,8 @@ set laststatus=2
 set mouse=a
  
 " Tab completion of commands
+set wildmode=longest,list,full
 set wildmenu
-set wildmode=longest:full
 
 " Switch from insert to normal mode by typing jj
 inoremap jj <Esc>
