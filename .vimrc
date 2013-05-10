@@ -2,12 +2,13 @@
 " Burn the bridge: don't try to be compatible with vi
 set nocompatible
 
-" Indent and tab
+" Indent, tab, wrap
 set autoindent
 set tabstop=4
 set expandtab
 set shiftwidth=4
 filetype indent on
+set nowrap
 
 " Show the status line
 set laststatus=2
@@ -36,8 +37,8 @@ set titleold=""
 nnoremap ; :
 
 " Cycle through buffers with F4 and F3
-:nnoremap <F4> :bnext<CR>
-:nnoremap <F3> :bprevious<CR>
+nnoremap <F4> :bnext<CR>
+nnoremap <F3> :bprevious<CR>
 
 " Use Q for formatting the current paragraph (or selection)
 vmap Q gq
@@ -89,13 +90,20 @@ set listchars=tab:▸\ ,eol:¬
 
 " gvim setting
 if has('gui_running')
+
     colorscheme slate
     set guioptions-=T  " hide toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set columns=80 lines=120
     set guifont=Monospace\ 12
+
 else
+
     set t_Co=16
+
+    " highlight current line in insert mode; not command
+    autocmd InsertEnter,InsertLeave * set cul!
+
 endif
 
 syntax on
