@@ -53,6 +53,9 @@ For example:
 - ``:10m20`` move line 10 to a new line after line 20
 - ``:10t.`` insert copy of line 10 on a new line after current line
 - ``:10,13t20`` insert copy of lines 10-13 on new lines after line 20
+- ``4:t$`` insert copy of next 4 lines at end of file
+- ``4:t0`` insert copy of next 4 lines at top of file
+- ``:t14`` insert copy of current line after line 14
 
 ====================
 text object commands
@@ -77,7 +80,7 @@ object    ``w`` (word), ``s`` (sentence), ``p`` (paragraph), ``"``, ``)``, etc
 Examples:
 
 - ``diw`` delete current word
-- ``vaw`` select current word plus trailing whitespace
+- ``vaw`` select current word plus trailing whitespace on one side of word
 - ``vip`` select current paragraph
 - ``vis`` select current sentence (or block of code!)
 - ``ci)`` change everything between enclosing parentheses (or use ``"``, ``'``, ``]``, etc)
@@ -86,7 +89,7 @@ Examples:
 
 Many text object commands have motion command equivalents. For example ``viw``
 is the same as ``bve`` (or ``ve`` if the cursor is already on the first
-character of the word.)
+character of the word).
 
 When using a command like ``ci"`` the cursor does not have to be between the
 quotes. It will change the text of the next quoted string on the current line.
@@ -96,28 +99,63 @@ the current indentation level or higher. It is useful for treating Python code
 in a `if` or `for` loop as a text object. For example, the command ``cii``
 changes all code that is indented as much as the current line or more.
 
-====================
-insert mode commands
-====================
+===========
+insert mode
+===========
 
-- ``CTRL-T`` insert one shiftwidth of indent at the start of current line
-- ``CTRL-D`` delete one shiftwidth of indent at the start of current line
-- ``CTRL-W`` delete word to the left of cursor
+- ``<C-t>`` insert one shiftwidth of indent at the start of current line
+- ``<C-d>`` delete one shiftwidth of indent at the start of current line
+- ``<C-w>`` delete word to the left of cursor (same as bash)
+- ``<C-u>`` delete back to start of line (same as bash)
+- ``<C-r>0`` paste yank register
+- ``<C-r>=6*35<CR>`` inserts 210
 
-====
-misc
-====
+===========
+normal mode
+===========
 
 - ``v/foo`` select from cursor to "foo" (``n`` for next; ``v?foo`` backwards)
-- ``ev2B`` select current word and previous word
-- ``:s/^/  /`` move current line two spaces right
+- ``ev2B`` select current WORD and previous word
 - ``^2X`` move current line two spaces left
+- ``[n]H`` move cursor to nth line of screen
+- ``M`` move cursor to middle line of screen
+- ``[n]L`` move cursor to nth line from bottom of screen
+- ``zz`` center screen on cursor
+
+=======
+ex mode
+=======
+
+- ``:s/^/  /`` move current line two spaces right
 - ``:7pu`` put yanked text on new line after line 7
 - ``:7pu!`` put yanked text on new line before line 7
-- ``H`` move cursor to first line of screen
-- ``M`` move cursor to middle line of screen
-- ``L`` move cursor to last line of screen
-- ``zz`` center screen on cursor
+- ``4:`` shorthand for range ``:.,.+3``
+
+===========
+visual mode
+===========
+
+- ``gV`` select last visual selection
+- ``o`` go to other end of highlighted text
+- ``u``, ``U`` change selection to lower, upper case
+- ``I``, ``A`` insert at start, end of selection (``i``, ``a`` don't work)
+
+=========
+registers
+=========
+
+- ``""`` unnamed, used by ``c``, ``d``, ``y``, ``x``, ``s``, etc.
+- ``"0`` yank
+- ``"+`` system clipboard
+- ``"*`` last system-selected text
+- ``".`` last inserted text
+
+==========
+references
+==========
+
+If you read this far then you wasted your time. You should have been reading
+'Practical Vim' by Drew Neil.
 
 .. _`config files`: http://github.com/kwgoodman/config
 .. _ghar: https://github.com/philips/ghar
