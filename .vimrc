@@ -23,11 +23,7 @@ set wildmode=longest,list,full
 set wildmenu
 set title
 set titleold=""
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
+set colorcolumn=80
 
 " vim/gvim setting
 if has('gui_running')
@@ -49,7 +45,7 @@ nnoremap <F4> :bnext<CR>
 nnoremap <F3> :bprevious<CR>
 vmap Q gq
 nmap Q gqap
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Use CTRL-S for saving, also in Insert mode
 noremap <silent> <C-S> :update<CR>
