@@ -130,6 +130,8 @@ ex mode
 - ``:7pu`` put yanked text on new line after line 7
 - ``:7pu!`` put yanked text on new line before line 7
 - ``4:`` shorthand for range ``:.,.+3``
+- ``<C-w>`` delete word to the left of cursor (same as bash)
+- ``<C-u>`` delete back to start of line (same as bash)
 
 ===========
 visual mode
