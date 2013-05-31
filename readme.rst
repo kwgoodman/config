@@ -152,9 +152,11 @@ registers
 
 - ``""`` unnamed, used by ``c``, ``d``, ``y``, ``x``, ``s``, etc.
 - ``"0`` yank
+- ``"-`` deleted or changed text less than one line
 - ``"+`` system clipboard
 - ``"*`` last system-selected text
 - ``".`` last inserted text
+- ``"{1-9}`` most recent ``"1``, second most recent ``"2``, etc. delete
 
 ===============
 automatic marks
