@@ -163,12 +163,10 @@ automatic marks
 From 'Practical Vim' by Drew Neil:
 
 - `````` position before the last jump within current file
-- ``\`.`` location of last change
-- ``\`^`` location of last insert
-- ``\`[`` start of last change or yank
-- ``\`]`` end of last change or yank
-- ``\`<`` start of last visual selection
-- ``\`>`` end of last visual selection
+- ```.`` location of last change
+- ```^`` location of last insert
+- ```[``, ```]`` start, end of last change or yank
+- ```<``, ```>`` start, end of last visual selection
 
 ==========
 references
