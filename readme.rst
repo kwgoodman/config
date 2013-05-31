@@ -108,6 +108,7 @@ insert mode
 - ``<C-w>`` delete word to the left of cursor (same as bash)
 - ``<C-u>`` delete back to start of line (same as bash)
 - ``<C-r>0`` paste yank register
+- ``<C-r>"`` paste unnamed register
 - ``<C-r>=6*35<CR>`` inserts 210
 
 ===========
@@ -121,6 +122,9 @@ normal mode
 - ``M`` move cursor to middle line of screen
 - ``[n]L`` move cursor to nth line from bottom of screen
 - ``zz`` center screen on cursor
+- ``gv`` select last visual selection, enter visual mode
+- ``gp``, ``gP`` same as ``p``, ``P`` but leaves cursor at end
+- ``1$``, ``2$`` end of current, next line, etc.
 
 =======
 ex mode
@@ -137,10 +141,10 @@ ex mode
 visual mode
 ===========
 
-- ``gV`` select last visual selection
 - ``o`` go to other end of highlighted text
 - ``u``, ``U`` change selection to lower, upper case
 - ``I``, ``A`` insert at start, end of selection (``i``, ``a`` don't work)
+- ``p`` replaces selection
 
 =========
 registers
@@ -151,6 +155,20 @@ registers
 - ``"+`` system clipboard
 - ``"*`` last system-selected text
 - ``".`` last inserted text
+
+===============
+automatic marks
+===============
+
+From 'Practical Vim' by Drew Neil:
+
+- ``\`\``` position before the last jump within current file
+- ``\`.`` location of last change
+- ``\`^`` location of last insert
+- ``\`[`` start of last change or yank
+- ``\`]`` end of last change or yank
+- ``\`<`` start of last visual selection
+- ``\`>`` end of last visual selection
 
 ==========
 references
@@ -163,3 +181,15 @@ If you read this far then you wasted your time. You should have been reading
 .. _ghar: https://github.com/philips/ghar
 .. _text-object: http://blog.carbonfive.com/2011/10/17/vim-text-objects-the-definitive-guide
 .. _`vim plugin to make indent objects`: https://github.com/michaeljsmith/vim-indent-object
+
+====
+bash
+====
+
+- ``<C-b>``, ``<C-f>`` move backward, forward one character
+- ``<C-a>``, ``<C-e>`` go to start, end of line
+- ``<M-b>``, ``<M-f>`` move backward, forward one word (whitespace defined)
+- ``<C-u>``, ``<C-k>`` delete from cursor to beginning, end of line
+- ``<C-w>``, ``<M-d>`` delete from cursor to previous, next whitespace
+- ``<C-y>`` paste previous deletion
+- ``<C-t>``, ``<M-t>`` swap current character, word with previous

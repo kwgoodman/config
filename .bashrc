@@ -59,11 +59,13 @@ alias c='cd'
 alias c.='cd ..'
 alias c..='cd ../..'
 alias c...='cd ../../..'
+alias p='cd \-'
+alias n='nautilus .'
 
 # ls aiases
 alias l='ls'
-alias ll='ls -l'
-alias la='ls -la'
+alias ll='ls -lh'
+alias la='ls -lah'
 
 # misc aliases
 alias py='ipython'
@@ -71,6 +73,7 @@ alias ma='make all'
 alias mt='make test'
 alias me='meld .'
 alias sb='source ~/.bashrc'
+alias v='vim'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

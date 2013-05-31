@@ -8,26 +8,31 @@ set number
 set laststatus=2
 set incsearch
 set hlsearch
-syntax on
 set background=dark
+set colorcolumn=80
+set title
+set titleold=""
+syntax on
 
 " editor
 set autoindent
 set tabstop=4
 set expandtab
 set shiftwidth=4
-filetype indent on
-filetype plugin indent on
 set mouse=a
 set wildmode=longest,list,full
 set wildmenu
-set title
-set titleold=""
-set colorcolumn=80
+set wildignore+=*.pyc,*.so,*.swp,.git
+filetype plugin indent on
+
+" system
+set confirm
+set nobackup
+set history=200
+set spelllang=en_us
 
 " vim/gvim setting
 if has('gui_running')
-    colorscheme slate
     set guioptions-=T  " hide toolbar
     set guioptions-=r  "remove right-hand scroll bar
     set columns=80 lines=120
@@ -35,8 +40,13 @@ if has('gui_running')
 else
     " highlight current line in insert mode; not command
     autocmd InsertEnter,InsertLeave * set cul!
-    set t_Co=16
+    set t_Co=16  " to get correct solarized colors
 endif
+
+" abbreviations
+ab im import
+ab imnp import numpy as np
+ab imbn import bottleneck as bn
 
 " mappings
 inoremap jj <Esc>
@@ -46,6 +56,8 @@ nnoremap <F3> :bprevious<CR>
 vmap Q gq
 nmap Q gqap
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :e %%
 
 " Use CTRL-S for saving, also in Insert mode
 noremap <silent> <C-S> :update<CR>
