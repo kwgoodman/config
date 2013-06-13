@@ -34,7 +34,7 @@ set spelllang=en_us
 " vim/gvim setting
 if has('gui_running')
     set guioptions-=T  " hide toolbar
-    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=r  " remove right-hand scroll bar
     set columns=80 lines=120
     set guifont=Monospace\ 12
 else
@@ -62,7 +62,7 @@ map <leader>e :e %%
 " Use CTRL-S for saving, also in Insert mode
 noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR>
+inoremap <silent> <C-S> <C-[>:update<CR>
 "
 " Add this to .bashrc:
 "
