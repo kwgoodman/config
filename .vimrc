@@ -2,6 +2,35 @@
 " vim not vi
 set nocompatible
 
+" Set up Vundle
+" http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let iCanHazVundle=0
+endif
+filetype off 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kien/ctrlp.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'nvie/vim-flake8'
+if iCanHazVundle == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
+endif
+" Set up Vundle (end)
+
 " display
 set nowrap
 set number
