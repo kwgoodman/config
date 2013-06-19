@@ -12,6 +12,7 @@ set background=dark
 set colorcolumn=80
 set title
 set titleold=""
+set listchars=tab:▸\ ,eol:¬
 syntax on
 
 " editor
@@ -55,9 +56,7 @@ nnoremap <F4> :bnext<CR>
 nnoremap <F3> :bprevious<CR>
 vmap Q gq
 nmap Q gqap
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :e %%
 
 " Use CTRL-S for saving, also in Insert mode
 noremap <silent> <C-S> :update<CR>
@@ -89,9 +88,23 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
-" <leader>l shows whitespace
-nmap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
+" <leader>
+let mapleader="\<Space>"
+map <leader>w :set list!<CR>  " shows whitespace
+map <leader>e :e %%
+map <leader>f :CtrlP<CR>
+map <leader>b :CtrlPBuffer<CR>
+map <leader>u :CtrlPMRU<CR>
+map <leader>x :CtrlPMixed<CR>
+map <leader>r :CtrlPRoot<CR>
+map <leader>d :CtrlPDir<CR>
+map <leader>l :CtrlPLine<CR>
+map <leader><Space> :nohlsearch<Bar>:echo<CR>
+vmap <leader>y "+y
+map <leader>p "+p
+map <leader>m "*p
+nnoremap <leader><Up> :m-2<CR>==
+nnoremap <leader><Down> :m+<CR>==
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " plugins
@@ -103,6 +116,10 @@ let NERDTreeShowBookmarks=1
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+" CtrlP
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_max_height=20
 
 colorscheme solarized
 " From http://www.xorcode.com/2011/04/11/solarized-vim-eclipse-ubuntu/
