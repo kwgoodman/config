@@ -149,6 +149,7 @@ nnoremap <F5> :GundoToggle<CR>
 " CtrlP
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_max_height=20
+let g:ctrlp_by_filename=1
 
 colorscheme solarized
 " From http://www.xorcode.com/2011/04/11/solarized-vim-eclipse-ubuntu/

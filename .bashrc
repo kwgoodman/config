@@ -36,11 +36,11 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # git aliases
-alias st='git status'
-alias ad='git add'
+alias st='git status -s'
+alias ad='git add'; __git_complete ad _git_add
 alias aa='git add .'
 alias co='git commit'
-alias ch='git checkout'
+alias ch='git checkout'; __git_complete ch _git_checkout
 alias lo='git log'
 alias cl='git clone'
 alias di='git diff'
@@ -73,7 +73,7 @@ alias ma='make all'
 alias mt='make test'
 alias me='meld .'
 alias sb='source ~/.bashrc'
-alias v='vim'
+alias v='cd /devel; vim'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -95,4 +95,39 @@ vim()
     stty stop '' -ixoff
     command vim "$@"
     stty "$STTYOPTS"
+}
+
+# git status all (sta) -------------------------------------------------------
+#
+# modified from https://coderwall.com/p/ewz5zq
+
+function sta () {
+    for gitdir in `find . -name .git`;
+    do
+        worktree=${gitdir%/*};
+        if (! unstaged_changes $gitdir) || (! uncommited_changes $gitdir) \
+           || (untracked $gitdir = 0)
+        then
+            echo "=== $gitdir ==="
+            git --git-dir=$gitdir --work-tree="$worktree" status -s
+        fi
+    done
+}
+
+function unstaged_changes() {
+    worktree=${1%/*};
+    git --git-dir="$1" --work-tree="$worktree" diff-files --quiet \
+        --ignore-submodules --
+}
+
+function uncommited_changes() {
+    worktree=${1%/*};
+    git --git-dir="$1" --work-tree="$worktree" diff-index --cached --quiet \
+        HEAD --ignore-submodules --
+}
+
+function untracked() {
+    worktree=${1%/*};
+    git --git-dir="$1" --work-tree="$worktree" ls-files --other \
+        --exclude-standard --error-unmatch . >/dev/null 2>&1
 }
