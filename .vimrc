@@ -18,12 +18,22 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'scrooloose/nerdtree'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'nvie/vim-flake8'
+Bundle 'Raimondi/delimitMate'
+Bundle 'ervandew/supertab'
+    let g:SuperTabDefaultCompletionType="context"
+Bundle 'kien/ctrlp.vim'
+    let g:ctrlp_working_path_mode=0
+    let g:ctrlp_max_height=20
+    let g:ctrlp_by_filename=1
+Bundle 'sjl/gundo.vim'
+    nnoremap <F5> :GundoToggle<CR>
+Bundle 'scrooloose/nerdtree'
+    map <F2> :NERDTreeToggle<CR>
+    let NERDTreeIgnore = ['\.pyc$']
+    let NERDTreeShowBookmarks=1
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
     echo ""
@@ -41,7 +51,7 @@ set background=dark
 set colorcolumn=80
 set title
 set titleold=""
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,trail:·
 syntax on
 
 " editor
@@ -50,16 +60,17 @@ set tabstop=4
 set expandtab
 set shiftwidth=4
 set mouse=a
-set wildmode=longest,list,full
-set wildmenu
-set wildignore+=*.pyc,*.so,*.swp,.git
-filetype plugin indent on
 
 " system
 set confirm
 set nobackup
+set hidden
 set history=200
 set spelllang=en_us
+set wildmode=longest,list,full
+set wildmenu
+set wildignore+=*.pyc,*.so,*.swp,.git
+filetype plugin indent on
 
 " vim/gvim setting
 if has('gui_running')
@@ -122,6 +133,7 @@ let mapleader="\<Space>"
 map <leader>w :set list!<CR>  " shows whitespace
 map <leader>e :e %%
 map <leader>f :CtrlP<CR>
+map <leader>h :CtrlP ~<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>u :CtrlPMRU<CR>
 map <leader>x :CtrlPMixed<CR>
@@ -134,22 +146,6 @@ map <leader>p "+p
 map <leader>m "*p
 nnoremap <leader><Up> :m-2<CR>==
 nnoremap <leader><Down> :m+<CR>==
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" plugins
-
-" Nerdtree: Toggle nerdtree with F2; ignore *.pyc files
-map <F2> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
-let NERDTreeShowBookmarks=1
-
-" Gundo
-nnoremap <F5> :GundoToggle<CR>
-
-" CtrlP
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_max_height=20
-let g:ctrlp_by_filename=1
 
 colorscheme solarized
 " From http://www.xorcode.com/2011/04/11/solarized-vim-eclipse-ubuntu/
