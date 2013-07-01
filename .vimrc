@@ -22,6 +22,8 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'nvie/vim-flake8'
 Bundle 'Raimondi/delimitMate'
+Bundle 'airblade/vim-gitgutter'
+    let g:gitgutter_enabled = 0
 Bundle 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType="context"
 Bundle 'kien/ctrlp.vim'
@@ -39,7 +41,6 @@ if iCanHazVundle == 0
     echo ""
     :BundleInstall
 endif
-" Set up Vundle (end)
 
 " display
 set nowrap
@@ -130,20 +131,20 @@ endfunction
 
 " <leader>
 let mapleader="\<Space>"
-map <leader>w :set list!<CR>  " shows whitespace
+map <leader>b :CtrlPBuffer<CR>
+map <leader>d :bd<CR>
 map <leader>e :e %%
 map <leader>f :CtrlP<CR>
+map <leader>g :GitGutterToggle<CR>
 map <leader>h :CtrlP ~<CR>
-map <leader>b :CtrlPBuffer<CR>
-map <leader>u :CtrlPMRU<CR>
-map <leader>x :CtrlPMixed<CR>
-map <leader>r :CtrlPRoot<CR>
-map <leader>d :CtrlPDir<CR>
 map <leader>l :CtrlPLine<CR>
-map <leader><Space> :nohlsearch<Bar>:echo<CR>
-vmap <leader>y "+y
-map <leader>p "+p
 map <leader>m "*p
+map <leader>p "+p
+map <leader>r :CtrlPRoot<CR>
+map <leader>u :CtrlPMRU<CR>
+map <leader>w :set list!<CR>  " shows whitespace
+vmap <leader>y "+y
+map <leader><Space> :nohlsearch<Bar>:echo<CR>
 nnoremap <leader><Up> :m-2<CR>==
 nnoremap <leader><Down> :m+<CR>==
 
