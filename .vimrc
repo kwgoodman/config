@@ -22,6 +22,8 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'nvie/vim-flake8'
 Bundle 'Raimondi/delimitMate'
+Bundle 'Lokaltog/vim-easymotion'
+    let g:EasyMotion_mapping_w = '<leader>w'
 Bundle 'airblade/vim-gitgutter'
     let g:gitgutter_enabled = 0
 Bundle 'ervandew/supertab'
@@ -29,7 +31,6 @@ Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
     let g:ctrlp_working_path_mode=0
     let g:ctrlp_max_height=20
-    let g:ctrlp_by_filename=1
 Bundle 'sjl/gundo.vim'
     nnoremap <F5> :GundoToggle<CR>
 Bundle 'scrooloose/nerdtree'
@@ -137,13 +138,14 @@ map <leader>e :e %%
 map <leader>f :CtrlP<CR>
 map <leader>g :GitGutterToggle<CR>
 map <leader>h :CtrlP ~<CR>
-map <leader>l :CtrlPLine<CR>
+map <leader>l :set list!<CR>  " shows whitespace
 map <leader>m "*p
 map <leader>p "+p
 map <leader>r :CtrlPRoot<CR>
+map <leader>s :source $MYVIMRC<CR>
 map <leader>u :CtrlPMRU<CR>
-map <leader>w :set list!<CR>  " shows whitespace
 vmap <leader>y "+y
+map <leader>6 :<C-6><CR>
 map <leader><Space> :nohlsearch<Bar>:echo<CR>
 nnoremap <leader><Up> :m-2<CR>==
 nnoremap <leader><Down> :m+<CR>==
