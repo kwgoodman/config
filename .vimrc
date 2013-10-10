@@ -145,6 +145,7 @@ map <leader>r :CtrlPRoot<CR>
 map <leader>s :source $MYVIMRC<CR>
 map <leader>u :CtrlPMRU<CR>
 vmap <leader>y "+y
+map <leader>z Iimport pdb; pdb.set_trace()<CR><C-[>
 map <leader>6 :<C-6><CR>
 map <leader><Space> :nohlsearch<Bar>:echo<CR>
 nnoremap <leader><Up> :m-2<CR>==
