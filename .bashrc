@@ -84,6 +84,8 @@ fi
 
 # Fancy prompt
 PS1='${debian_chroot:+($debian_chroot)}\[\033[0;34m\]\u@\h\[\033[33m\]:\[\033[40m\]\w`__git_ps1`\$\[\033[00m\] '
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 export PATH=$PATH:~/ghar/bin/
 
