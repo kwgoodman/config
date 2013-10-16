@@ -5,7 +5,7 @@
 
 # history
 export HISTCONTROL=ignoreboth:erasedups
-export HISTIGNORE='st:aa:co:lo:di:ps:pl:de:da:dp:gh:c:c.:c..:c...:p:l:la:ll:py:ma:mt:me:history'
+export HISTIGNORE='aa:co:ps:pl'
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 shopt -s histappend
