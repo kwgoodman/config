@@ -63,11 +63,14 @@ alias l='ls --ignore="*.pyc"'
 alias ll='ls -lh'
 alias la='ls -lah'
 
-# misc aliases
-alias py='ipython'
+# make aliases
 alias ma='make all'
 alias mt='make test'
+alias mf='make full_test'
 alias m8='make flake8'
+
+# misc aliases
+alias py='ipython'
 alias me='meld .'
 alias sb='source ~/.bashrc'
 alias v='cd /devel; vim'
