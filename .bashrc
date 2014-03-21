@@ -66,7 +66,7 @@ alias la='ls -lah'
 # make aliases
 alias ma='make all'
 alias mt='make test'
-alias mf='make full_test'
+alias mf='make test_full'
 alias m8='make flake8'
 
 # misc aliases
