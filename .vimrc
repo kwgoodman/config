@@ -66,6 +66,7 @@ set mouse=a
 " system
 set confirm
 set nobackup
+set noswapfile
 set hidden
 set history=200
 set spelllang=en_us
