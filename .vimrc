@@ -10,13 +10,13 @@ if !filereadable(vundle_readme)
     echo "Installing Vundle.."
     echo ""
     silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    silent !git clone https://github.com/gmarik/Vundle ~/.vim/bundle/vundle
     let iCanHazVundle=0
 endif
 filetype off 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'kevinw/pyflakes-vim'
@@ -66,6 +66,7 @@ set mouse=a
 " system
 set confirm
 set nobackup
+set noswapfile
 set hidden
 set history=200
 set spelllang=en_us
