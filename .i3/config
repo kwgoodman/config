@@ -1,37 +1,39 @@
+# set variables
 set $mod Mod1
+set $ns --no-startup-id
 
 # remove title bar
 new_window pixel 2
 
 # gray background pattern
-exec --no-startup-id xsetroot -solid "#333333"
+exec $ns xsetroot -solid "#333333"
 
 # couldn't get wicd-curses to connect so, ugh, use nm for now
-exec --no-startup-id nm-applet
+exec $ns nm-applet
 
 # control volume with keyboard volume keys (assumes using pulseaudio)
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10% && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec $ns pactl set-sink-volume 0 -- +10% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec $ns pactl set-sink-volume 0 -- -10% && killall -SIGUSR1 i3status
 
 # just in case...
 bindsym $mod+n exec nautilus --no-desktop --new-window
 
 # initial layout
-exec --no-startup-id i3-msg 'workspace 1; exec i3-sensible-terminal; exec i3-sensible-terminal'
-exec --no-startup-id i3-msg 'workspace 3; exec i3-sensible-terminal'
+exec $ns i3-msg 'workspace 1; exec i3-sensible-terminal; exec i3-sensible-terminal'
 exec --no-startup-id i3-msg 'workspace 2; exec firefox'
 
 # disable tap-to-click on trackpad
-exec --no-startup-id synclient MaxTapTime=0
+exec $ns synclient MaxTapTime=0
 
 # lock screen, suspend, reboot, etc
 set $mode_system (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown, (Esc) cancel
 mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.i3/i3exit.sh lock, mode "default"
-    bindsym e exec --no-startup-id ~/.i3/i3exit.sh logout, mode "default"
-    bindsym s exec --no-startup-id ~/.i3/i3exit.sh suspend, mode "default"
-    bindsym r exec --no-startup-id ~/.i3/i3exit.sh reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.i3/i3exit.sh shutdown, mode "default"
+    set $exit ~/.i3/i3exit.sh
+    bindsym l exec $ns $exit lock, mode "default"
+    bindsym e exec $ns $exit logout, mode "default"
+    bindsym s exec $ns $exit suspend, mode "default"
+    bindsym r exec $ns $exit reboot, mode "default"
+    bindsym Shift+s exec $ns i3exit shutdown, mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+End mode "$mode_system"
@@ -54,7 +56,7 @@ bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# bindsym $mod+d exec $ns i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
