@@ -5,38 +5,33 @@ set nocompatible
 " Set up Vundle
 " http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc
 let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme)
     echo "Installing Vundle.."
     echo ""
     silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/Vundle ~/.vim/bundle/vundle
+    silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
     let iCanHazVundle=0
 endif
-filetype off 
-set rtp+=~/.vim/bundle/vundle/
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
-Bundle 'gmarik/Vundle'
+Bundle 'VundleVim/Vundle.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'kevinw/pyflakes-vim'
 Bundle 'nvie/vim-flake8'
 Bundle 'Raimondi/delimitMate'
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'easymotion/vim-easymotion'
     let g:EasyMotion_mapping_w = '<leader>w'
 Bundle 'airblade/vim-gitgutter'
     let g:gitgutter_enabled = 0
 Bundle 'ervandew/supertab'
     let g:SuperTabDefaultCompletionType="context"
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_working_path_mode=0
     let g:ctrlp_max_height=20
 Bundle 'sjl/gundo.vim'
     nnoremap <F5> :GundoToggle<CR>
-Bundle 'scrooloose/nerdtree'
-    map <F2> :NERDTreeToggle<CR>
-    let NERDTreeIgnore = ['\.pyc$']
-    let NERDTreeShowBookmarks=1
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
     echo ""
