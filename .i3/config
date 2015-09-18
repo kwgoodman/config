@@ -162,7 +162,7 @@ bindsym $mod+r mode "resize"
 
 # i3bar
 bar {
-        status_command i3status
+        status_command i3status --config ~/.i3/i3status.conf
         colors {
             background #222222
             statusline #666666
