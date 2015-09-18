@@ -2,12 +2,14 @@
 
 case "$1" in
     lock)
-        i3lock
+        i3lock -c000000
         ;;
     logout)
         i3-msg exit
         ;;
     suspend)
+        # sleep is to avoid race condition with suspend
+        i3lock -c000000 && sleep 1 && \
         dbus-send --system --print-reply --dest="org.freedesktop.UPower" \
         /org/freedesktop/UPower org.freedesktop.UPower.Suspend
         ;;
