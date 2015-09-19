@@ -5,7 +5,7 @@
 
 # history
 export HISTCONTROL=ignoreboth:erasedups
-export HISTIGNORE='aa:co:ps:pl'
+export HISTIGNORE='st:aa:co:ps:pl:di:me:v:history:gh:l:la:ll:htop:py'
 export HISTSIZE=10000
 export HISTFILESIZE=10000
 shopt -s histappend
@@ -19,8 +19,6 @@ shopt -s checkwinsize
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-
-    # colors
     eval "`dircolors -b`"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
@@ -28,21 +26,44 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-
 fi
 
-# git aliases
+# __define_git_completion and __git_shortcut taken from
+# https://github.com/bronson/dotfiles/blob/master/.bashrc
+__define_git_completion () {
+eval "
+    _git_$2_shortcut () {
+        COMP_LINE=\"git $2\${COMP_LINE#$1}\"
+        let COMP_POINT+=$((4+${#2}-${#1}))
+        COMP_WORDS=(git $2 \"\${COMP_WORDS[@]:1}\")
+        let COMP_CWORD+=1
+        local cur words cword prev
+        _get_comp_words_by_ref -n =: cur words cword prev
+        _git_$2
+    }
+"
+}
+__git_shortcut () {
+    type _git_$2_shortcut &>/dev/null || __define_git_completion $1 $2
+    local args=${@: 3}
+    alias $1="git $2 $args"
+    complete -o default -o nospace -F _git_$2_shortcut $1
+}
+
+# git aliases with tab completion
+__git_shortcut ad add
+__git_shortcut br branch
+__git_shortcut ch checkout
+
+# git aliases without tab completion
 alias st='git status -s'
-alias ad='git add' #; __git_complete ad _git_add
 alias aa='git add .'
 alias co='git commit'
-alias ch='git checkout' #; __git_complete ch _git_checkout
-alias lo='git log'
 alias cl='git clone'
 alias di='git diff'
 alias ps='git push origin master'
 alias pl='git pull'
-alias br='git branch'
+alias lo="git log --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset%s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit"
 
 # place aliases
 alias de='cd /devel'
@@ -56,11 +77,10 @@ alias c.='cd ..'
 alias c..='cd ../..'
 alias c...='cd ../../..'
 alias p='cd \-'
-alias n='nautilus .'
 
 # ls aiases
 alias l='ls --ignore="*.pyc"'
-alias ll='ls -lh'
+alias ll='ls -lh --ignore="*.pyc"'
 alias la='ls -lah'
 
 # make aliases
