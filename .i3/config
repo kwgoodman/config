@@ -19,7 +19,7 @@ bindsym XF86AudioLowerVolume exec $ns pactl set-sink-volume 0 -- -10% && killall
 bindsym $mod+n exec nautilus --no-desktop --new-window
 
 # initial layout
-exec $ns i3-msg 'workspace 1; exec i3-sensible-terminal; exec i3-sensible-terminal'
+exec $ns i3-msg 'workspace 1; exec urxvt; exec urxvt'
 exec --no-startup-id i3-msg 'workspace 2; exec firefox'
 
 # disable tap-to-click on trackpad
@@ -46,7 +46,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
