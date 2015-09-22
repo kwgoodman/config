@@ -1,5 +1,6 @@
 # set variables
 set $mod Mod1
+set $terminal urxvt
 set $ns --no-startup-id
 
 # remove title bar
@@ -19,8 +20,11 @@ bindsym XF86AudioLowerVolume exec $ns pactl set-sink-volume 0 -- -10% && killall
 bindsym $mod+n exec nautilus --no-desktop --new-window
 
 # initial layout
-exec $ns i3-msg 'workspace 1; exec urxvt; exec urxvt'
+exec $ns i3-msg "workspace 1; exec $terminal; exec $terminal"
 exec --no-startup-id i3-msg 'workspace 2; exec firefox'
+
+# open in fullscreen mode
+for_window [class="Meld"] fullscreen
 
 # disable tap-to-click on trackpad
 exec $ns synclient MaxTapTime=0
@@ -33,7 +37,7 @@ mode "$mode_system" {
     bindsym e exec $ns $exit logout, mode "default"
     bindsym s exec $ns $exit suspend, mode "default"
     bindsym r exec $ns $exit reboot, mode "default"
-    bindsym Shift+s exec $ns i3exit shutdown, mode "default"
+    bindsym Shift+s exec $ns $exit shutdown, mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+End mode "$mode_system"
@@ -46,7 +50,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
