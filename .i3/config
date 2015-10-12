@@ -1,6 +1,6 @@
 # set variables
 set $mod Mod1
-set $terminal urxvt
+set $terminal gnome-terminal
 set $ns --no-startup-id
 
 # remove title bar
